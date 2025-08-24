@@ -1,0 +1,38 @@
+{
+  "name": "hotel-website-template",
+  "version": "1.0.0",
+  "description": "Luxury villa showcase website for Ultima Corfu",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=8080 --open=/",
+    "dev": "live-server --port=8080",
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "postcss css/styles.css -o dist/css/styles.min.css",
+    "build:js": "terser js/main.js -o dist/js/main.min.js"
+  },
+  "keywords": [
+    "luxury",
+    "villa",
+    "corfu",
+    "greece",
+    "vacation",
+    "rental",
+    "responsive",
+    "website"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
+    "terser": "^5.24.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
