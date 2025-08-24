@@ -285,7 +285,7 @@ body {
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
-                url('../images/Hero-section-bg.jpg');
+                url('../images/Hero-section.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Parallax effect */
@@ -349,13 +349,17 @@ body {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    transition: all var(--transition-medium);
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), 
+                box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
     cursor: pointer;
-    contain: layout style paint;
+    /* Performance optimizations */
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .feature-card:hover {
-    transform: translateY(-10px);
+    transform: translate3d(0, -10px, 0); /* Use 3D transforms for GPU */
     box-shadow: 0 30px 60px rgba(0,0,0,0.15);
 }
 
@@ -365,15 +369,9 @@ body {
     background-position: center;
     position: relative;
     overflow: hidden;
-    transition: transform var(--transition-slow);
-}
-.featured-image {
-    height: 250px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
-    transition: transform var(--transition-slow);
+    /* Performance optimizations */
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 
@@ -485,7 +483,7 @@ body {
 .luxury-image {
     height: 500px;
     border-radius: 20px;
-    background-image: url('../images/Hero-section-bg.jpg');
+    background-image: url('../images/Hero-section.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -893,4 +891,32 @@ html {
         padding-bottom: 100px;
     }
     
+}
+/* Additional Performance Optimizations */
+@media (prefers-reduced-motion: reduce) {
+    .feature-card,
+    .feature-image,
+    .feature-image::before {
+        transition: none !important;
+        transform: none !important;
+    }
+    
+    .feature-card:hover {
+        transform: none !important;
+    }
+}
+
+/* Optimize for mobile */
+@media (max-width: 768px) {
+    .feature-card {
+        transition-duration: 0.2s; /* Faster transitions on mobile */
+    }
+    
+    .feature-card:hover {
+        transform: translate3d(0, -5px, 0); /* Less movement on mobile */
+    }
+    
+    .feature-card:hover .feature-image {
+        transform: scale3d(1.02, 1.02, 1); /* Less zoom on mobile */
+    }
 }
