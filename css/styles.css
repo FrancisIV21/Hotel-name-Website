@@ -383,7 +383,7 @@ body {
 }
 
 .feature-card:nth-child(2) .feature-image {
-    background-image: url('../images/cliffside-living.jpg');
+    background-image: url('../images/Cliffside-Living.jpg');
 }
 
 .feature-card:nth-child(3) .feature-image {
@@ -391,7 +391,7 @@ body {
 }
 
 .feature-card:nth-child(4) .feature-image {
-    background-image: url('../images/breezy-design.jpg');
+    background-image: url('../images/Breezy-design.jpg');
 }
 
 .feature-card:nth-child(5) .feature-image {
@@ -399,7 +399,7 @@ body {
 }
 
 .feature-card:nth-child(6) .feature-image {
-    background-image: url('../images/wellness.jpg');
+    background-image: url('../images/Wellness.jpg');
 }
 
 /*  featured images under Services Section*/
@@ -567,7 +567,7 @@ body {
 /* Individual Gallery Item Images */
 .gallery-item:nth-child(1),
 .gallery-item:nth-child(5) {
-    background-image: url('../images/private-terrace.jpg');
+    background-image: url('../images/Private-terrace.jpg');
 }
 
 .gallery-item:nth-child(2),
@@ -577,7 +577,7 @@ body {
 
 .gallery-item:nth-child(3),
 .gallery-item:nth-child(7) {
-    background-image: url('../images/seaview.jpg');
+    background-image: url('../images/Seaview.jpg');
 }
 
 .gallery-item:nth-child(4),
